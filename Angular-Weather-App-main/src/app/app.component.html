@@ -1,0 +1,72 @@
+<div class="search">
+  <form #search="ngForm" (submit)="onWeather()">
+    <input
+      type="text"
+      placeholder="Search City"
+      name="cityName"
+      [(ngModel)]="cityName"
+    />
+  </form>
+</div>
+
+<div class="main">
+  <div class="container">
+    <div class="upper-data">
+      <img src="../assets//Weather.webp" alt="weather" />
+      <div class="weather-data">
+        <div class="location">{{ weatherData?.name }}</div>
+        <div class="temp">{{ weatherData?.main.temp }}°C</div>
+      </div>
+    </div>
+    <div class="lowe-data">
+      <div class="more-info-label">More Information</div>
+      <div class="more-info-container">
+        <div class="info-block">
+          <div class="info-block-label">
+            <img src="../assets/Cold.png" class="tem-val" />
+            <span>Min</span>
+          </div>
+          <div class="info-block-value">
+            {{ weatherData?.main.temp_min | number : "1.0-0" }}°C
+          </div>
+        </div>
+        <div class="info-block">
+          <div class="info-block-label">
+            <img src="../assets/hot.png" class="tem-val" />
+            <span>Max</span>
+          </div>
+          <div class="info-block-value">
+            {{ weatherData?.main.temp_max | number : "1.0-0" }}°C
+          </div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-block-label">
+            <img src="../assets/Cold.png" class="tem-val" />
+            <span>humidity</span>
+          </div>
+          <div class="info-block-value">
+            {{ weatherData?.main.humidity | number : "1.0-0" }}%
+          </div>
+        </div>
+        <div class="info-block">
+          <div class="info-block-label">
+            <img src="../assets/hot.png" class="tem-val" />
+            <span>Wind</span>
+          </div>
+          <div class="info-block-value">
+            {{ weatherData?.wind.speed | number : "1.0-0" }}km/h
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<section>
+  <div class="wave wave1"></div>
+  <div class="wave wave2"></div>
+  <div class="wave wave3"></div>
+  <div class="wave wave4"></div>
+</section>
+
+<router-outlet></router-outlet>
